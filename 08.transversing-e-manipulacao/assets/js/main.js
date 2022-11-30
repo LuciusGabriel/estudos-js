@@ -1,50 +1,24 @@
-// Quando o usuário clicar nos links internos do site, adicione a classe ativo ao item clicado e remova dos demais itens caso eles possuam a mesma. Previna o comportamento padrão desses links
+// Duplique o menu e adicione ele em copy
 
-const linksInternos = document.querySelectorAll('a[href^="#"]')
+const menu = document.querySelector('.menu')
+const copy = document.querySelector('.copy')
 
-function mudaClasse(event){
-    event.preventDefault();
-    // Remover a class ativo -->
-    linksInternos.forEach((link)=>{
-        link.classList.remove('ativo')
-    })
+const cloneMenu = menu.cloneNode(true)
 
-    // Como adicionar a Classe Ativo?
-    event.currentTarget.classList.add('ativo')
-}
-
-linksInternos.forEach((link)=>{
-    link.addEventListener('click', mudaClasse)
-})
+copy.appendChild(cloneMenu)
 
 
+// Selecione o primeiro DT da DL de Faq
+const primeiroDT = document.querySelector('dt')
 
-// Selecione todo os elementos do site começando a partir do body, ao clique mostre exatamente quais elementos estão sendo clicados
-const body = document.body;
+// Selecione o DD referente ao Primeiro DT
+console.log(primeiroDT.nextElementSibling.innerText)
 
-function scan(event){
-    console.log(event.path[0])
-}
+// Substitua o conteúdo HTML de .faq pelo de .animais
 
-body.addEventListener('click', scan)
+const faq = document.querySelector('.faq')
+const animais = document.querySelector('.animais')
 
-
-// Utilizando o código anterior, ao invés de mostrar no console, remova o elemento que está sendo clicado, o método remove() remove um elemento
-
-// function exclude(event){
-//     let clicado = event.path[0];
-//     clicado.remove();
-// }
-
-// body.addEventListener('click', exclude)
+faq.innerHTML = animais.innerHTML
 
 
-// Se o usuário clicar na tecla (T), aumente todo o texto do site
-
-function apertaT(event){
-    if(event.key === 't'){
-        document.documentElement.classList.toggle('texto-maior')
-    }
-}
-
-window.addEventListener('keydown', apertaT)
