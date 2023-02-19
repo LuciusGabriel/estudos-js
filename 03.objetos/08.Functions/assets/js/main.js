@@ -1,6 +1,9 @@
 // Retorne a soma total de caracteres dos
 // parágrafos acima utilizando reduce
 
+const p = document.querySelectorAll('p')
+
+console.log(p)
 
 // Crie uma função que retorne novos elementos
 // html, com os seguintes parâmetros
