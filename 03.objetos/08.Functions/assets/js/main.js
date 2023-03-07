@@ -1,3 +1,28 @@
+// Código Aula
+
+const honda = {
+    marca: 'Honda',
+    ano: 2008,
+}
+
+const fiat = {
+    marca: 'Fiat',
+    ano: 2010,
+}
+
+function dadosVeiculo(potencia){
+    console.log(`${this.marca} ${this.ano} ${potencia}`)
+}
+
+dadosVeiculo.call(honda, '200cv')
+dadosVeiculo.call(fiat, '80cv')
+
+
+
+
+
+
+
 // Retorne a soma total de caracteres dos
 // parágrafos acima utilizando reduce
 
